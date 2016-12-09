@@ -23,8 +23,8 @@ app.post('/webhook', function (req, res) {
   if (data.object === 'page') {
     // Iterate over each entry - there may be multiple if batched
     data.entry.forEach(function (entry) {
-      // var pageID = entry.id
-      // var timeOfEvent = entry.time
+      var pageID = entry.id
+      var timeOfEvent = entry.time
 
       // Iterate over each messaging event
       entry.messaging.forEach(function (event) {
@@ -53,7 +53,7 @@ function receivedMessage (event) {
   console.log('Received message for user %d and page %d at %d with message:', senderID, recipientID, timeOfMessage)
   console.log(JSON.stringify(message))
 
-  // var messageId = message.mid
+  var messageId = message.mid
   var messageText = message.text
   var messageAttachments = message.attachments
 
