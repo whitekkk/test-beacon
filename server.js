@@ -59,29 +59,31 @@ function receivedMessage (event) {
 
   if (messageText) {
     switch (messageText) {
-      case 'test':
-        var location = event.message.text
-        var weatherEndpoint = 'http://api.openweathermap.org/data/2.5/weather?q=' +location+ '&units=metric&appid=438e694f261e41e4a5785503c4e878f0'
-        request({
-          url: weatherEndpoint,
-          json: true
-        }, function(error, response, body) {
-          try {
-            var condition = body.main;
-            sendTextMessage(senderID, "Today is " + condition.temp + "Celsius in " + location);
-          } catch(err) {
-            console.error('error caught', err);
-            sendTextMessage(senderID, "There was an error.");
-          }
-        })
-        break
+      var location = event.message.text
+      var weatherEndpoint = 'http://api.openweathermap.org/data/2.5/weather?q=' +location+ '&units=metric&appid=438e694f261e41e4a5785503c4e878f0'
+      request({
+        url: weatherEndpoint,
+        json: true
+      }, function(error, response, body) {
+        try {
+          var condition = body.main;
+          sendTextMessage(senderID, "Now " + condition.temp + " degree Celsius in " + location);
+        } catch(err) {
+          console.error('error caught', err);
+          sendTextMessage(senderID, "There was an error.");
+        }
+      })
 
-      case 'generic':
-        sendGenericMessage(senderID)
-        break
-
-      default :
-        sendTextMessage(senderID, messageText)
+      // case 'Thailand':
+      //   sendTextMessage(senderID, '')
+      //   break
+      //
+      // case 'generic':
+      //   sendGenericMessage(senderID)
+      //   break
+      //
+      // default :
+      //   sendTextMessage(senderID, messageText)
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, 'Message with attachment received')
