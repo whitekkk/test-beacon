@@ -61,7 +61,7 @@ function receivedMessage (event) {
     if (messageText.toUpperCase().indexOf('HOW TO USE') !== -1) {
       sendTextMessage(senderID, "Tell me your city do you want.");
     }
-    elseif (messageText !== '') {
+    else if (messageText !== '') {
       var location = event.message.text
       var weatherEndpoint = 'http://api.openweathermap.org/data/2.5/weather?q=' +location+ '&units=metric&appid=438e694f261e41e4a5785503c4e878f0'
       request({
