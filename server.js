@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.get('/webhook', function (req, res) {
-  var key = 'EAADDsYTbZATsBAJ7IwJTuxceW6ho8oLrqgcFL9N6fXFSFdDijG0AsB4MYZAojf0bKZAnWquSe8ZAgskiZCoFRMwb81NzzU8xFKEgSzyJngzgNg9Mq3laZCXD26C15ZASZADbg6k68k1VZC673ac58IOxkxYTdHt5JUcDGgryxaSXrrwZDZD'
+  var key = 'EAADDsYTbZATsBAPmrRGo9X872VkSjV33AvcI69YFM3WjiawybsH8YYrDu7z1rYqSRQqyGZBenJQF9d9SWGkp6NSWSUNOxCHZAX9jhPo3MClH7xAslGAIKHMh3oD2VZAGcyX7LVIGjnjst4VOwC2axxACzPVm8ZAB8P7D32N78DAZDZD'
   if (req.query['hub.verify_token'] === key) {
     res.send(req.query['hub.challenge'])
   }
