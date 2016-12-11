@@ -58,7 +58,7 @@ function receivedMessage (event) {
   var messageAttachments = message.attachments
 
   if (messageText) {
-    if (messageText.toUpperCase().indexOf('HOW TO USE') !== 0) {
+    if (messageText.toUpperCase().indexOf('HOW TO USE') !== -1) {
       sendTextMessage(senderID, "Tell me your city do you want.");
     }
     elseif (messageText !== '') {
