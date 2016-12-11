@@ -69,7 +69,7 @@ function receivedMessage (event) {
       }, function(error, response, body) {
         try {
           var condition = body.main;
-          sendTextMessage(senderID, "Now " + condition.temp + " degree Celsius in " + location _+ ".");
+          sendTextMessage(senderID, "Now " + condition.temp + " degree Celsius in " + location + ".");
         } catch(err) {
           console.error('error caught', err);
           sendTextMessage(senderID, "Sorry plesae check your message.");
