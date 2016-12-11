@@ -4,12 +4,12 @@ var request = require('request')
 var app = express()
 
 app.use(bodyParser.json())
-app.set('port', (process.env.PORT || 52014))
+app.set('port', (process.env.PORT || 4000))
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.get('/webhook', function (req, res) {
-  var key = 'EAADDsYTbZATsBAJDbu5oSZBQqSuHjH6ocfBV0LboIRAuJQpo2wxFcTLvMNlkuNPAjorlClx0ZBI8nWe1eaJE6AT1i6zbT51I2CMY6gZCd4lNpzXHojxdSljcUjLauHXaRj0mlXnwdgO16vB4roXp9pZAAnqlvDo1B98RelmbCVwZDZD'
+  var key = 'EAADDsYTbZATsBAIYygNrAvk8aAeHh5UZAwkr8ssG1PbQNmLGMVMC0Y6ZBeeHhUzBurU1tx0MT0XuuHSWl2Y6rhPYanZAZBfL1ZB4GGrgyeBqPHZCVZCMmlKb6bmEEw311Pxoiqzq8KGsM3A0W0wcEhVLdm7QMwgopA7UV9v9Pfrp9wZDZD'
   if (req.query['hub.verify_token'] === key) {
     res.send(req.query['hub.challenge'])
   }
@@ -139,7 +139,7 @@ function sendTextMessage (recipientId, messageText) {
 function callSendAPI (messageData) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: { access_token: 'EAADDsYTbZATsBAH9qZA2PPuVvZAtDYH2NqqsbAnFFRX21ii7omgYEIHEGhG3MDvcbUlpS7zZCAidJP7vZCo7XCMfWHbndaMJTU5ZB1ZAnvy1MIcZA0DQWbnsn2MZBmFt6LUnPj13yuZAiaRbK9QjXHSMUnxW9ZBXQNRnVMOZAHFLTOhrKAZDZD' },
+    qs: { access_token: 'EAADDsYTbZATsBAIYygNrAvk8aAeHh5UZAwkr8ssG1PbQNmLGMVMC0Y6ZBeeHhUzBurU1tx0MT0XuuHSWl2Y6rhPYanZAZBfL1ZB4GGrgyeBqPHZCVZCMmlKb6bmEEw311Pxoiqzq8KGsM3A0W0wcEhVLdm7QMwgopA7UV9v9Pfrp9wZDZD' },
     method: 'POST',
     json: messageData
 
