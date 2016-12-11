@@ -68,13 +68,13 @@ function receivedMessage (event) {
         }, function(error, response, body) {
           try {
             var condition = body.main;
-            sendTextMessage(sender, "Today is " + condition.temp + "Celsius in " + location);
+            sendTextMessage(senderID, "Today is " + condition.temp + "Celsius in " + location);
           } catch(err) {
             console.error('error caught', err);
-            sendTextMessage(sender, "There was an error.");
+            sendTextMessage(senderID, "There was an error.");
           }
         })
-      break
+        break
 
       case 'generic':
         sendGenericMessage(senderID)
