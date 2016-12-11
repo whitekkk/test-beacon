@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.get('/webhook', function (req, res) {
-  var key = 'EAADDsYTbZATsBAH9qZA2PPuVvZAtDYH2NqqsbAnFFRX21ii7omgYEIHEGhG3MDvcbUlpS7zZCAidJP7vZCo7XCMfWHbndaMJTU5ZB1ZAnvy1MIcZA0DQWbnsn2MZBmFt6LUnPj13yuZAiaRbK9QjXHSMUnxW9ZBXQNRnVMOZAHFLTOhrKAZDZD'
+  var key = 'EAAJqdFkCk64BAHaoAj1RWGUv2iV6nzXxhuotK5VDn2IKdt8BNiSZCfuwZAbW7Skecy5eVxaMqUdXvjMebNq4ZCHgd4OodVV8NltniZBPjSZBZCnLqiqkFYdcTpZC5DQewmtZCZCKGZB0LeyquRP8ZCjXzUIc8mM7GQ86Rltpm5hBUpWjwZDZD'
   if (req.query['hub.verify_token'] === key) {
     res.send(req.query['hub.challenge'])
   }
@@ -58,9 +58,9 @@ function receivedMessage (event) {
   var messageAttachments = message.attachments
 
   if (messageText) {
-    if (messageText === 'hello') {
-      sendTextMessage(senderID, 'ควยเอ้ย ไม่รู้ request')
-    }
+    // if (messageText === 'hello') {
+    //   sendTextMessage(senderID, 'ควยเอ้ย ไม่รู้ request')
+    // }
 
     // If we receive a text message, check to see if it matches a keyword
     // and send back the example. Otherwise, just echo the text we received.
