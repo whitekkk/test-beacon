@@ -58,7 +58,7 @@ function receivedMessage (event) {
   var messageAttachments = message.attachments
 
   if (messageText) {
-    switch (messageText) {
+    // switch (messageText) {
       var location = event.message.text
       var weatherEndpoint = 'http://api.openweathermap.org/data/2.5/weather?q=' +location+ '&units=metric&appid=438e694f261e41e4a5785503c4e878f0'
       request({
@@ -73,18 +73,18 @@ function receivedMessage (event) {
           sendTextMessage(senderID, "There was an error.");
         }
       })
-
-      // case 'Thailand':
-      //   sendTextMessage(senderID, '')
-      //   break
-      //
-      // case 'generic':
-      //   sendGenericMessage(senderID)
-      //   break
-      //
-      // default :
-      //   sendTextMessage(senderID, messageText)
-    }
+    //
+    //   case 'Thailand':
+    //     sendTextMessage(senderID, '')
+    //     break
+    //
+    //   case 'generic':
+    //     sendGenericMessage(senderID)
+    //     break
+    //
+    //   default :
+    //     sendTextMessage(senderID, messageText)
+    // }
   } else if (messageAttachments) {
     sendTextMessage(senderID, 'Message with attachment received')
   }
