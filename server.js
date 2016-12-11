@@ -58,10 +58,8 @@ function receivedMessage (event) {
   var messageAttachments = message.attachments
 
   if (messageText) {
-    console.log(0);
     if (messageText.toUpperCase().indexOf('HOW TO USE') !== -1) {
       sendTextMessage(senderID, "Tell me your city do you want.");
-      console.log(1);
     } else if (messageText !== '') {
       var location = event.message.text
       var weatherEndpoint = 'http://api.openweathermap.org/data/2.5/weather?q=' +location+ '&units=metric&appid=438e694f261e41e4a5785503c4e878f0'
@@ -71,6 +69,7 @@ function receivedMessage (event) {
       }, function(error, response, body) {
         try {
           var condition = body.main;
+          console.log(body)
           sendTextMessage(senderID, "Now " + condition.temp + " degree Celsius in " + location);
         } catch(err) {
           console.error('error caught', err);
