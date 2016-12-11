@@ -58,7 +58,7 @@ function receivedMessage (event) {
   var messageAttachments = message.attachments
 
   if (messageText) {
-    // switch (messageText) {
+    if (messageText !== '') {
       var location = event.message.text
       var weatherEndpoint = 'http://api.openweathermap.org/data/2.5/weather?q=' +location+ '&units=metric&appid=438e694f261e41e4a5785503c4e878f0'
       request({
@@ -73,11 +73,11 @@ function receivedMessage (event) {
           sendTextMessage(senderID, "There was an error.");
         }
       })
-    //
-    //   case 'Thailand':
-    //     sendTextMessage(senderID, '')
-    //     break
-    //
+    }
+
+    // If we receive a text message, check to see if it matches a keyword
+    // and send back the example. Otherwise, just echo the text we received.
+    // switch (messageText) {
     //   case 'generic':
     //     sendGenericMessage(senderID)
     //     break
