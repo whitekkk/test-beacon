@@ -15,6 +15,8 @@ var gateways = [
 var allPoint = {}
 var ob = {}
 
+var json = {data: "nodata"}
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
@@ -26,18 +28,18 @@ app.use(function (req, res, next) {
 
 
 app.get('/testDatas', function (req, res, next) {
-  res.send({'test': '21321'})
+  res.send(json)
 })
 
-// app.post('/newbeacon', function (req, res) {
-//     var json = req.body;
-//     res.send('Add new Completed!');
-// });
-//
-// app.post('/neweddystone', function (req, res) {
-//     var json = req.body;
-//     res.send('Add new Completed!');
-// });
+app.post('/newbeacon', function (req, res) {
+    json = req.body;
+    res.send('Add new Completed!');
+});
+
+app.post('/neweddystone', function (req, res) {
+    json = req.body;
+    res.send('Add new Completed!');
+});
 
 
 app.use(express.static('dist'))
